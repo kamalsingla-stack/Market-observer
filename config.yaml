@@ -1,0 +1,70 @@
+# Market Observer Configuration
+
+# AI Stocks to Monitor
+stocks:
+  primary:
+    - NVDA    # NVIDIA - AI chip leader
+    - TSLA    # Tesla - AI & autonomous driving
+    - META    # Meta - AI research and LLMs
+    - GOOGL   # Google - Alphabet AI
+    - MSFT    # Microsoft - Copilot & enterprise AI
+  secondary:
+    - ADBE    # Adobe - Generative AI
+    - PLTR    # Palantir - AI analytics
+    - AVGO    # Broadcom - AI infrastructure
+    - ARM     # Arm Holdings - AI chips
+    - SMCI    # Super Micro Computer - AI servers
+
+# Technical Indicators Configuration
+indicators:
+  moving_averages:
+    short_window: 20      # 20-day MA
+    medium_window: 50     # 50-day MA
+    long_window: 200      # 200-day MA
+  
+  rsi:
+    period: 14
+    overbought: 70
+    oversold: 30
+  
+  macd:
+    fast: 12
+    slow: 26
+    signal: 9
+  
+  bollinger_bands:
+    period: 20
+    std_dev: 2
+
+# Trading Signal Thresholds
+signals:
+  buy_threshold: 0.65       # Confidence level for BUY signal
+  sell_threshold: 0.65      # Confidence level for SELL signal
+  rsi_buy: 30               # Buy when RSI falls below
+  rsi_sell: 70              # Sell when RSI rises above
+  momentum_window: 5        # Days to calculate momentum
+
+# Data Configuration
+data:
+  source: "yfinance"
+  interval: "1d"            # Daily data
+  history_days: 365         # 1 year history
+  update_frequency_hours: 24
+
+# Alert Configuration
+alerts:
+  price_change_percent: 5   # Alert on 5% price change
+  volume_change_percent: 50 # Alert on 50% volume change
+  rsi_extreme: true         # Alert on RSI extremes
+  ma_cross: true            # Alert on moving average crosses
+
+# Portfolio Settings
+portfolio:
+  initial_capital: 100000
+  max_position_size: 15     # Max % of capital per stock
+  risk_per_trade: 2         # Risk 2% per trade
+
+# Logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
